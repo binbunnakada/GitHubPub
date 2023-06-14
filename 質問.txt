@@ -1,0 +1,20 @@
+以下の
+縦データ.xlsxは"SELECT * FROM #wrk ORDER BY TopickCode, TopickDay"の結果をexcelに張り付けたものです。
+
+横データ.xlsxのイメージの結果を得る　クエリーを教えてください。
+
+
+縦データ.xlsx
+https://github.com/binbunnakada/GitHubPub/blob/master/%E7%B8%A6%E3%83%87%E3%83%BC%E3%82%BF.xlsx
+
+
+横データ.xlsx
+https://github.com/binbunnakada/GitHubPub/blob/master/%E6%A8%AA%E3%83%87%E3%83%BC%E3%82%BF.xlsx
+
+chatGPT はgitHub のダウンロードボタンをクリックできますか？
+できない場合、私は何をすればよいでしょうか？
+
+リンクを送ります。
+https://docs.google.com/spreadsheets/d/175PqrvLo5cU_J9AHTe6KK14vBYVqWxEo/edit?usp=sharing&ouid=111200905110687334345&rtpof=true&sd=true, https://docs.google.com/spreadsheets/d/1ZvQaDeOHiKBRyJuVz57jDtWbGM7J2FZb/edit?usp=sharing&ouid=111200905110687334345&rtpof=true&sd=true
+
+

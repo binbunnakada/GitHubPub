@@ -1,12 +1,15 @@
 
+-- ïœêîêÈåæ
 
+
+	--DROP TABLE #wrk
 
 		SELECT convert(varchar, TopickDay, 23) TopickDay
 		,tmp2.TopickCode
 		,EndPrice
 		INTO #wrk
 		FROM (
-			SELECT TOP(30)  TopickCode, CNT  
+			SELECT TOP(3)  TopickCode, CNT  
 			, maxPrice
 			, avgPrice
 			, minPrice
@@ -24,13 +27,23 @@
 		) tmp2
 		,	dDaylyPrice
 		WHERE tmp2.TopickCode = dDaylyPrice.TopickCode
-		ORDER BY dDaylyPrice.TopickCode,dDaylyPrice.TopickDay
+		ORDER BY dDaylyPrice.TopickDay, dDaylyPrice.TopickCode
 
 
-		SELECT * FROM #wrk
+
+		SELECT TopickDay
+       ,MAX(CASE WHEN TopickCode = '4536.T' THEN EndPrice ELSE NULL END) AS '4536.T'
+       ,MAX(CASE WHEN TopickCode = '6432.T' THEN EndPrice ELSE NULL END) AS '6432.T'
+       ,MAX(CASE WHEN TopickCode = '6656.T' THEN EndPrice ELSE NULL END) AS '6656.T'
+		FROM #wrk
+		GROUP BY TopickDay
+		ORDER BY TopickDay;
 
 
-		DROP TABLE #wrk
+
+	--select * from #wrk
+
+	DROP TABLE #wrk
 
 
 

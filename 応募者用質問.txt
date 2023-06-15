@@ -1,0 +1,57 @@
+SQL
+ 縦に正規化されたTable に
+　年月、店舗、売上金額
+　yyMM   --A      xxxx
+　yyMM   --A      xxxx
+　yyMM   --A      xxxx
+　yyMM   --A      xxxx
+　yyMM   --A      xxxx
+　yyMM   --A      xxxx
+
+-------------------------------------------------
+　店舗　１月、２月・・１２月
+　---  　金額　・・・・金額
+　---  　金額　・・・・金額
+　---  　金額　・・・・金額
+　---  　金額　・・・・金額
+横に出力　SQL文には何を　CASE WHEN
+
+-----------------------------------------------
+ 年月、店舗、売上順位を出力は
+ yymm   --A	1
+ yymm   --B	2
+ yymm   --C	3
+ yymm   --D	4
+ yyMM   --C	1
+ yyMM   --B	2
+ yyMM   --A	3
+ yyMM   --D	4
+　　row_number() over (partition by name order by num desc) as rank
+　　rank() over (partition by name order by num desc) as rank
+
+---------------------------------------------------------
+C#
+  チーム制作のツールは何を使用？
+	TortoisGit & （GitHub,TearmFoundation）の違いは
+	visual studio のgitを使ったことは？
+
+
+	
+	classeを作ったことは？
+
+ 	継承Controlを作ったことは？
+	
+
+	Entity Framework?
+
+
+既存システムの大幅改造の場合、
+何から始めますか？
+
+
+
+
+チャットGPT
+Bing AI Chat
+Google Bard
+評価は？

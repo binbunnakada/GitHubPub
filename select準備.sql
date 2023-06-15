@@ -1,5 +1,5 @@
 
-
+--縦　table を横テーブルに変換
 
 	SELECT TopickDay
     ,MAX(CASE WHEN TopickCode = '4536.T' THEN EndPrice ELSE NULL END) AS '4536.T'

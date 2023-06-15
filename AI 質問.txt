@@ -1,0 +1,103 @@
+
+
+
+C#でwindowsのformアプリケーション作成でSql tableをdatagridviewにPagedListを使用してページングする
+サンプルコ＾ドをください。
+
+SimpleDataGridViewPaging
+
+C#で windowsのformアプリケーション作成でSql tableをSimpleDataGridViewPagingを使用してページングする
+サンプルコ＾ドをください。
+
+
+using System;
+using System.Data;
+using System.Data.Entity;
+using System.Linq;
+using System.Windows.Forms;
+using PagedList;
+
+namespace WindowsFormsApp
+{
+    public partial class MainForm : Form
+    {
+        private const int PageSize = 10;
+        private int currentPage = 1;
+        private IPagedList<Customer> pagedCustomers;
+
+        public MainForm()
+        {
+            InitializeComponent();
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            LoadCustomers();
+        }
+
+        private void LoadCustomers()
+        {
+            using (var context = new SampleDbContext())
+            {
+                // ページングで顧客データを取得
+                pagedCustomers = context.Customers.OrderBy(c => c.Id).ToPagedList(currentPage, PageSize);
+
+                // DataGridViewにデータをバインド
+                dataGridView1.DataSource = pagedCustomers.ToList();
+
+                // ページング情報の表示
+                UpdatePageInfo();
+            }
+        }
+
+        private void UpdatePageInfo()
+        {
+            lblPageInfo.Text = $"Page {pagedCustomers.PageNumber} of {pagedCustomers.PageCount}";
+
+            btnPrevious.Enabled = pagedCustomers.HasPreviousPage;
+            btnNext.Enabled = pagedCustomers.HasNextPage;
+        }
+
+        private void btnPrevious_Click(object sender, EventArgs e)
+        {
+            if (pagedCustomers.HasPreviousPage)
+            {
+                currentPage--;
+                LoadCustomers();
+            }
+        }
+
+        private void btnNext_Click(object sender, EventArgs e)
+        {
+            if (pagedCustomers.HasNextPage)
+            {
+                currentPage++;
+                LoadCustomers();
+            }
+        }
+    }
+
+    // サンプルのデータモデル
+    public class Customer
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Email { get; set; }
+        public string Phone { get; set; }
+    }
+
+    // サンプルのDbContext
+    public class SampleDbContext : DbContext
+    {
+        public DbSet<Customer> Customers { get; set; }
+
+        public SampleDbContext() : base("name=SampleDbContext")
+        {
+        }
+    }
+}
+
+
+さっきのサンプルはGPTがAI内部で生成したのですか？
+それとも過去の蓄積データですか？
+日本語のコメントは回答時に翻訳しているのですか？
